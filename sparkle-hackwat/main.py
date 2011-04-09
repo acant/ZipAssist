@@ -3,6 +3,7 @@ import cgi
 import logging
 import urllib
 import urlutil
+import zipca
 from google.appengine.ext.webapp import template
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
@@ -27,6 +28,7 @@ class Manage(webapp.RequestHandler):
         selected = self.request.get('selected')
 
         movie_title, movie_upc = urlutil.get_movie_title_and_upc_from_url(title,url,selected)
+        title_id = zipca.search(movie_title, movie_upc)
 
         template_values = {
             'title': title,
@@ -34,6 +36,7 @@ class Manage(webapp.RequestHandler):
             'selected': selected,
             'movie_title': movie_title,
             'movie_upc': movie_upc,
+            'title_id': title_id,
         }
 
         path = os.path.join(os.path.dirname(__file__), 'manage.html')
