@@ -16,13 +16,12 @@
 
 <script type="text/javascript">
 
-function handle_postrank_metrics(jsondata) {
-	$("#postranks").text(jsondata);
-}
 
 $(document).ready(function() {
 	var url = '{{url}}';
-	$.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=handle_postrank_metrics&id=' + url, function (jsondata) {
+	$.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=?&id=' + url, function (jsondata) {
+    console.log(jsondata);
+	$("#postranks").text(jsondata);
 	});
 });
 
@@ -37,6 +36,7 @@ $(document).ready(function() {
 
   <div id="zipassist">
     <div id="ziptitle">{{zipdata.Title.Regular}}</div>
+    <div id="postranks"></div>
     <div id="ziprating"><meter min="0" max="5" low="2" high="4" optimum="5" value="{{zipdata.ZipRating}}"></meter>{{zipdata.ZipRating}}</div>
     <div id="zipreleaseyear">[<span>{{zipdata.ReleaseYear}}</span>]</div>
     <div id="zipcats">
