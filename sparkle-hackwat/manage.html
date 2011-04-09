@@ -28,7 +28,7 @@
 
 	<div id="zipassist">
 		<div id="ziptitle">{{zipdata.Title.Regular}}</div>
-		<div id="ziprating"><meter min="0" max="5" low="2" high="4" optimum="5" value="{{zipdata.ZipRating}}">{{zipdata.ZipRating}}</div>
+		<div id="ziprating"><meter min="0" max="5" low="2" high="4" optimum="5" value="{{zipdata.ZipRating}}"></meter>{{zipdata.ZipRating}}</div>
 		<div id="zipreleaseyear">[<span>{{zipdata.ReleaseYear}}</span>]</div>
 		<div id="zipcats">
 			{% for cat in zipdata.Categories %}
