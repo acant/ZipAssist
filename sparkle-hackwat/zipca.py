@@ -48,4 +48,17 @@ def zip(title_id):
   return(resp['status'] == 200)
 
 #TODO
-#def unzip(title_id):
+def unzip(title_id):
+  RESOURCE_URL= "http://hackott.zip.ca/users/profile/3b76374683cf47dea3e92c3b0eb3c523/unzip/%s" % title_id
+
+  consumer = oauth.Consumer(
+    's6NEeuT34WVDYR0uaSq6m0zp6Ck=', #CONSUEMR_KEY
+    'pwrf+IADmo5czaouZkU7Z7/i2DY=' #consumer_secret
+  )
+  token = oauth.Token.from_string('oauth_token=H5%2FiKP3pp7Q4Cmw4h3oX1unMu5c%3D&oauth_token_secret=S06hAqO8TcfDujZoTEufgWy8OyY%3D')
+  client = oauth.Client(consumer, token)
+
+  resp, content = client.request(RESOURCE_URL, "POST")
+
+
+  return(resp['status'] == 200)
