@@ -14,8 +14,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 
-<script language="javascript">
+<script type="text/javascript">
 
+  $(document).ready(function() {
+      console.log('test');
+  });
 </script>
 
 </head>
@@ -23,23 +26,24 @@
 <body>
 
 <div id="content">
-	<img src="{{zipdata.CoverArt.Large}}" alt="Movie Image"></img>
+  <img src="{{zipdata.CoverArt.Large}}" alt="Movie Image"></img>
 
-	<div id="zipassist">
-		<div id="ziptitle">{{zipdata.Title.Regular}}</div>
-		<div id="ziprating"><meter min="0" max="5" low="2" high="4" optimum="5" value="{{zipdata.ZipRating}}"></meter>{{zipdata.ZipRating}}</div>
-		<div id="zipreleaseyear">[<span>{{zipdata.ReleaseYear}}</span>]</div>
-		<div id="zipcats">
-			{% for cat in zipdata.Categories %}
-			 | <span>{{cat}}</span>
-			{% endfor %}
-		</div>
-		<div id="ziplink">
-			<!--<a href="{{zipdata.Id}}">Zip Link</a>-->
-			<a href="http://www.google.com/search?hl=en&source=hp&biw=1920&bih=1062&q={{zipdata.Title.Regular}} IMDB&btnI=I%27m+Feeling+Lucky&aq=f&aqi=&aql=&oq=">IMDB</a>
-			<a href="http://www.google.com/search?hl=en&source=hp&biw=1920&bih=1062&q={{zipdata.Title.Regular}} ROTTEN TOMATOES&btnI=I%27m+Feeling+Lucky&aq=f&aqi=&aql=&oq=">Rotten Tomatoes</a>
-		</div>
-	</div>
-<div>
+  <div id="zipassist">
+    <div id="ziptitle">{{zipdata.Title.Regular}}</div>
+    <div id="ziprating"><meter min="0" max="5" low="2" high="4" optimum="5" value="{{zipdata.ZipRating}}"></meter>{{zipdata.ZipRating}}</div>
+    <div id="zipreleaseyear">[<span>{{zipdata.ReleaseYear}}</span>]</div>
+    <div id="zipcats">
+      {% for cat in zipdata.Categories %}
+       | <span>{{cat}}</span>
+      {% endfor %}
+    </div>
+    <div id="ziplink">
+      <!--<a href="{{zipdata.Id}}">Zip Link</a>-->
+      <a href="http://www.google.com/search?hl=en&source=hp&biw=1920&bih=1062&q={{zipdata.Title.Regular}} IMDB&btnI=I%27m+Feeling+Lucky&aq=f&aqi=&aql=&oq=">IMDB</a>
+      <a href="http://www.google.com/search?hl=en&source=hp&biw=1920&bih=1062&q={{zipdata.Title.Regular}} ROTTEN TOMATOES&btnI=I%27m+Feeling+Lucky&aq=f&aqi=&aql=&oq=">Rotten Tomatoes</a>
+    </div>
+  </div>
+    <button id="add">Add to ZipList</button>
+  <div>
 
 </body>

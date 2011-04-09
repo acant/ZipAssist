@@ -31,6 +31,7 @@ class Manage(webapp.RequestHandler):
 
         movie_title, movie_upc = urlutil.get_movie_title_and_upc_from_url(title,url,selected)
         zipdata = zipca.search(movie_title, movie_upc)
+        logging.error(zipdata)
 
         template_values = {
             'title': title,
@@ -48,6 +49,12 @@ class Manage(webapp.RequestHandler):
             path = os.path.join(os.path.dirname(__file__), 'manage_error.html')
 
         self.response.out.write(template.render(path, template_values))
+
+
+class Add(webapp.RequestHandler):
+    def get(self):
+        path = os.path.join(os.path.dirname(__file__), 'added.json')
+        self.response.out.write(template.render(path, {}))
 
 def main():
     application = webapp.WSGIApplication([
