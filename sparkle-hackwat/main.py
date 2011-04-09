@@ -31,7 +31,6 @@ class Manage(webapp.RequestHandler):
 
         movie_title, movie_upc = urlutil.get_movie_title_and_upc_from_url(title,url,selected)
         zipdata = zipca.search(movie_title, movie_upc)
-        logging.error(zipdata)
 
         template_values = {
             'title': title,
@@ -40,6 +39,7 @@ class Manage(webapp.RequestHandler):
             'movie_title': movie_title,
             'movie_upc': movie_upc,
             'zipdata': zipdata,
+            'ziplist': zipca.zip_list()['Titles']
         }
 
         path = None

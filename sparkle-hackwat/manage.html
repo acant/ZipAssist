@@ -60,5 +60,11 @@ $(document).ready(function() {
     </div>
   </div>
     <button id="add">Add to ZipList</button>
-  <div>
+  <div></div>
+  <h1>Your current zip list is:</h1>
+  <ul class="zip_list">
+    {% for title in ziplist %}
+      <li>{{title.Title.Regular}}</li>
+    {% endfor %}
+  </ul>
 </body>
