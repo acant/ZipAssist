@@ -16,10 +16,13 @@
 
 <script language="javascript">
 
+function handle_postrank_metrics(jsondata) {
+	$("#postranks").text(jsondata);
+}
+
 $(document).ready(function() {
 	var url = '{{url}}';
-	$.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&id=' + url, function (jsondata) {
-		$("#postranks").text(jsondata);
+	$.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=handle_postrank_metrics&id=' + url, function (jsondata) {
 	});
 });
 
