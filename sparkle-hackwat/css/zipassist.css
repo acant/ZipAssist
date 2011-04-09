@@ -45,7 +45,9 @@ body {
 	color: #999;
 }
 
-#ziplink {
+#ziplink a {
+	display: block;
+	color: #830F14;
 }
 
 #error_content {
