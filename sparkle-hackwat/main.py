@@ -2,6 +2,7 @@ import os
 import cgi
 import logging
 import urllib
+import urlutil
 from google.appengine.ext.webapp import template
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util
@@ -21,14 +22,21 @@ class MainPage(webapp.RequestHandler):
 
 class Manage(webapp.RequestHandler):
     def get(self):
-      template_values = {
-          'title': self.request.get('title'),
-          'url': self.request.get('url'),
-          'selected': self.request.get('selected')
-      }
+        title = self.request.get('title'),
+        url = self.request.get('url'),
+        selected = self.request.get('selected')
 
-      path = os.path.join(os.path.dirname(__file__), 'manage.html')
-      self.response.out.write(template.render(path, template_values))
+        movie_title = urlutil.get_movie_title_from_url(title,url,selected)
+
+        template_values = {
+            'title': title,
+            'url': url,
+            'selected': selected,
+            'movie_title': movie_title,
+        }
+
+        path = os.path.join(os.path.dirname(__file__), 'manage.html')
+        self.response.out.write(template.render(path, template_values))
 
 
 def main():
