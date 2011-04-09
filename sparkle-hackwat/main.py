@@ -1,4 +1,5 @@
 import os
+import re
 import cgi
 import logging
 import email
@@ -40,6 +41,7 @@ class Manage(webapp.RequestHandler):
             'movie_title': movie_title,
             'movie_upc': movie_upc,
             'zipdata': zipdata,
+            'id': re.search("([0-9]*)$", zipdata['Id']).group(0)
         }
 
         path = None

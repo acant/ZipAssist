@@ -18,13 +18,17 @@
 
 
 $(document).ready(function() {
+  $('#add').click(function() {
+    $.getJSON('/add?title_id={{ id }}', function(response) {});
+  });
+
 	var url = '{{url}}';
 	$.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=?&id=' + url, function (jsondata) {
 		var prmetrics = jsondata['{{url}}'];
 
 		for (var key in prmetrics) {
 			$("#postranks").append(
-				$('<span/>').addClass('postrank_metric').addClass(key);
+				$('<span/>').addClass('postrank_metric').addClass(key)
 			).append(
 				$('<span/>').addClass('postrank_text').text(prmetrics[key])
 			);
