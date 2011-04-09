@@ -1,0 +1,17 @@
+application: sparkle-hackwat
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /
+  script: main.py
+
+- url: /images
+  static_dir: images
+
+- url: /audio
+  static_dir: audio
+
+- url: /.*
+  script: main.py
