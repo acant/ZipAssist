@@ -59,7 +59,8 @@ class Add(webapp.RequestHandler):
 def main():
     application = webapp.WSGIApplication([
       ('/', MainPage),
-      ('/manage', Manage)
+      ('/manage', Manage),
+      ('/add', Add)
     ], debug=True)
     util.run_wsgi_app(application)
 
