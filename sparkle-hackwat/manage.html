@@ -23,27 +23,20 @@
 
 <body>
 
-<!--
-		{{ url }}
-		{{ title }}
-		{{ selected }}
-		{{ movie_title }}
-		{{ movie_upc }}
-		{{ zipdata }}
--->
-
 <div id="content">
 	<img src="http://images.zip.ca/large/188668.jpg" alt="Movie Image"></img>
 
 	<div id="zipassist">
-		<div id="ziptitle">Night of the Living Dorks (Die Nacht der lebenden Loser)</div>
-		<div id="ziprating"><meter min="0" max="5" low="2" high="4" optimum="5" value="3.36"></div>
-		<div id="zipreleaseyear">[<span>2004</span>] --</div>
+		<div id="ziptitle">{{zipdata.Title.Regular}}</div>
+		<div id="ziprating"><meter min="0" max="5" low="2" high="4" optimum="5" value="{{zipdata.ZipRating}}"></div>
+		<div id="zipreleaseyear">[<span>{{zipdata.ReleaseYear}}</span>]</div>
 		<div id="zipcats">
-			<span>Comedy</span> | <span>Foreign Language & Int'l</span> | <span>Horror</span>
+			{% for cat in zipdata.Categories %}
+			 | <span>{{cat}}</span>
+			{% endfor %}
 		</div>
 		<div id="ziplink">
-			<a href="http://hackott.zip.ca/catalog/title/3057654">Zip Link</a>
+			<a href="{{zipdata.Id}}">Zip Link</a>
 		</div>
 	</div>
 <div>
