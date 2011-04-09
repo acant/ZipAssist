@@ -1,11 +1,13 @@
 import os
 import cgi
 import logging
+import email
 import urllib
 import urlutil
 import zipca
 from google.appengine.ext.webapp import template
 from google.appengine.ext import webapp
+from google.appengine.ext.webapp.mail_handlers import InboundMailHandler
 from google.appengine.ext.webapp import util
 from django.utils import simplejson as json
 from google.appengine.api import urlfetch
@@ -42,9 +44,11 @@ class Manage(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'manage.html')
         self.response.out.write(template.render(path, template_values))
 
-
 def main():
-    application = webapp.WSGIApplication([('/', MainPage), ('/manage', Manage)], debug=True)
+    application = webapp.WSGIApplication([
+      ('/', MainPage),
+      ('/manage', Manage)
+    ], debug=True)
     util.run_wsgi_app(application)
 
 

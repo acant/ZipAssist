@@ -3,15 +3,22 @@ version: 1
 runtime: python
 api_version: 1
 
+inbound_services:
+- mail
+
 handlers:
+- url: /_ah/mail/.+
+  script: handle_incoming_email.py
+  login: admin
+
 - url: /
   script: main.py
 
-- url: /images
-  static_dir: images
+- url: /img
+  static_dir: img
 
-- url: /audio
-  static_dir: audio
+- url: /css
+  static_dir: css
 
 - url: /.*
   script: main.py
