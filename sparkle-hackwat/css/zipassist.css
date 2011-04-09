@@ -114,12 +114,16 @@ body {
 }
 
 span.postrank_metric {
+	margin-right: 10px;
+	color: #555;
+}
+
+span.postrank_metric {
   display: inline-block;
 
   height: 16px;
   padding: 0;
-  padding-left: 20px;
-  margin-right: 10px;
+  margin-right: 5px;
 
   color: #666;
   background: url(http://www.postrank.com/graphics/spriteSet_3.png) no-repeat top left;
