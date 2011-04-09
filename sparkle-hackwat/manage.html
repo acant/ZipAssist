@@ -19,7 +19,13 @@
 
 $(document).ready(function() {
   $('#add').click(function() {
-    $.getJSON('/add?title_id={{ id }}', function(response) {});
+    $.get('/add?title_id={{ id }}', function(response) {
+      if ( response.success ) {
+        window.location.href = window.location.href;
+      } else {
+        console.log('something went wrong');
+      }
+    });
   });
 
 	var url = '{{url}}';
