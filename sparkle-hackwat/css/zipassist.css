@@ -26,6 +26,10 @@ body {
 	font-size: 24px;
 }
 
+#ziptitle {
+	display: inline-block;
+}
+
 #zipreleaseyear {
 	display: inline-block;
 }
