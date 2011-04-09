@@ -16,9 +16,13 @@
 
 <script type="text/javascript">
 
-  $(document).ready(function() {
-      console.log('test');
+$(document).ready(function() {
+  var url = '{{url}}';
+  $.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&id=' + url, function (jsondata) {
+    $("#postranks").text(jsondata);
   });
+});
+
 </script>
 
 </head>
@@ -45,5 +49,4 @@
   </div>
     <button id="add">Add to ZipList</button>
   <div>
-
 </body>
