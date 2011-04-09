@@ -50,11 +50,13 @@ class Manage(webapp.RequestHandler):
 
         self.response.out.write(template.render(path, template_values))
 
-
 class Add(webapp.RequestHandler):
     def get(self):
-        path = os.path.join(os.path.dirname(__file__), 'added.json')
-        self.response.out.write(template.render(path, {}))
+      title_id = self.request.get('title_id')
+      zipca.zip(title_id)
+
+      path = os.path.join(os.path.dirname(__file__), 'added.json')
+      self.response.out.write(template.render(path, {}))
 
 def main():
     application = webapp.WSGIApplication([
