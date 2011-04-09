@@ -18,19 +18,29 @@
 
 
 $(document).ready(function() {
+  $('#add').click(function() {
+    $.get('/add?title_id={{ id }}', function(response) {
+      if ( response.success ) {
+        window.location.href = window.location.href;
+      } else {
+        console.log('something went wrong');
+      }
+    });
+  });
+
 	var url = '{{url}}';
 	$.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=?&id=' + url, function (jsondata) {
 		var prmetrics = jsondata['{{url}}'];
-		var prtext = "";
 
 		for (var key in prmetrics) {
-			prtext += key;
-			prtext += ' = ';
-			prtext += prmetrics[key];
-			prtext += ' | ';
+			$("#postranks").append(
+				$('<span/>').addClass('postrank_metric').addClass(key)
+			).append(
+				$('<span/>').addClass('postrank_text').text(prmetrics[key])
+			);
 		}
 
-		$("#postranks").text(prtext);
+		$("#postranks").html();
 	});
 });
 
