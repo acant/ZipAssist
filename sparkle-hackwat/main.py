@@ -19,8 +19,20 @@ class MainPage(webapp.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'index.html')
         self.response.out.write(template.render(path, template_values))
 
+class Manage(webapp.RequestHandler):
+    def get(self):
+      template_values = {
+          'title': self.request.get('title'),
+          'url': self.request.get('url'),
+          'selected': self.request.get('selected')
+      }
+
+      path = os.path.join(os.path.dirname(__file__), 'manage.html')
+      self.response.out.write(template.render(path, template_values))
+
+
 def main():
-    application = webapp.WSGIApplication([('/', MainPage)], debug=True)
+    application = webapp.WSGIApplication([('/', MainPage), ('/manage', Manage)], debug=True)
     util.run_wsgi_app(application)
 
 
