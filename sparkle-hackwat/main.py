@@ -60,11 +60,18 @@ class Add(webapp.RequestHandler):
       path = os.path.join(os.path.dirname(__file__), 'added.json')
       self.response.out.write(template.render(path, {'result': str(result).lower() }))
 
+class Unzip(webapp.RequestHandler):
+    def get(self):
+      result = zipca.unzip('3057654') #night of the living dorks
+      result = zipca.unzip('3021904') #Tommy and the Computoys: The Story
+
+
 def main():
     application = webapp.WSGIApplication([
       ('/', MainPage),
       ('/manage', Manage),
-      ('/add', Add)
+      ('/add', Add),
+      ('/unzip', Unzip)
     ], debug=True)
     util.run_wsgi_app(application)
 
