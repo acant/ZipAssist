@@ -23,8 +23,8 @@ class MainPage(webapp.RequestHandler):
 
 class Manage(webapp.RequestHandler):
     def get(self):
-        title = self.request.get('title'),
-        url = self.request.get('url'),
+        title = self.request.get('title')
+        url = self.request.get('url')
         selected = self.request.get('selected')
 
         movie_title, movie_upc = urlutil.get_movie_title_and_upc_from_url(title,url,selected)
