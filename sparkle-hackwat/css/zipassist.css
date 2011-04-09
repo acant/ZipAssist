@@ -48,6 +48,29 @@ body {
 #ziplink {
 }
 
+#error_content {
+	display: inline-block;
+	width: 565px;
+	text-align: center;
+}
+
+#appology_top {
+	color: #830F14;
+	font-size: 24px;
+	text-align: left;
+}
+
+#appology_mid {
+	font-size: 18px;
+	text-align: center;
+}
+
+#appology_bot {
+	font-size: 26px;
+	text-align: right;
+	color: #830F14;
+}
+
 #bookmarklet {
 	display: inline-block;
 	width: 565px;
