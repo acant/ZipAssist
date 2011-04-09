@@ -8,9 +8,9 @@ class SpecialPages():
 	ROTTEN_REVIEW_PAGE = 2
 
 def map_url_to_special_page(url):
-	if "imdb" in url:
+	if "www.imdb.com" in url and "/title/" in url:
 		return SpecialPages.IMDB_MOVIE_PAGE
-	if "rottentomatoes" in url:
+	if "www.rottentomatoes.com" in url and "/m/" in url:
 		return SpecialPages.ROTTEN_REVIEW_PAGE
 	
 	return SpecialPages.NONE
