@@ -12,11 +12,36 @@ body {
 }
 
 #content img {
-	width: 225px;
-	height: 225px;
 	margin: 0;
 	padding: 0;
 	vertical-align: middle;
+}
+
+#zipassist {
+	display: inline-block;
+	width: 565px;
+}
+
+#ziptitle {
+	font-size: 24px;
+}
+
+#zipreleaseyear {
+	display: inline-block;
+}
+#zipreleaseyear {
+	color: #777;
+}
+
+#zipcats {
+	display: inline-block;
+}
+
+#zipcats span {
+	color: #999;
+}
+
+#ziplink {
 }
 
 #bookmarklet {
@@ -26,7 +51,7 @@ body {
 }
 
 #bookmarklet a {
-	font-size: 22px;
+	font-size: 32px;
 	color: #000;
 }
 
@@ -38,7 +63,7 @@ body {
 
 #description_top {
 	color: #830F14;
-	font-size: 22px;
+	font-size: 26px;
 	text-align: left;
 }
 #description_mid {

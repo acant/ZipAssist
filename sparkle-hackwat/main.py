@@ -28,7 +28,7 @@ class Manage(webapp.RequestHandler):
         selected = self.request.get('selected')
 
         movie_title, movie_upc = urlutil.get_movie_title_and_upc_from_url(title,url,selected)
-        title_id = zipca.search(movie_title, movie_upc)
+        zipdata = zipca.search(movie_title, movie_upc)
 
         template_values = {
             'title': title,
@@ -36,7 +36,7 @@ class Manage(webapp.RequestHandler):
             'selected': selected,
             'movie_title': movie_title,
             'movie_upc': movie_upc,
-            'title_id': title_id,
+            'zipdata': zipdata,
         }
 
         path = os.path.join(os.path.dirname(__file__), 'manage.html')
