@@ -1,0 +1,77 @@
+body {
+	background-color: #830F14;
+}
+
+#content {
+	background-color: #FFF;
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 100px;
+	padding: 15px;
+	border-radius: 15px;
+}
+
+#content img {
+	margin: 0;
+	padding: 0;
+	vertical-align: middle;
+}
+
+#zipassist {
+	display: inline-block;
+	width: 565px;
+}
+
+#ziptitle {
+	font-size: 24px;
+}
+
+#zipreleaseyear {
+	display: inline-block;
+}
+#zipreleaseyear {
+	color: #777;
+}
+
+#zipcats {
+	display: inline-block;
+}
+
+#zipcats span {
+	color: #999;
+}
+
+#ziplink {
+}
+
+#bookmarklet {
+	display: inline-block;
+	width: 565px;
+	text-align: center;
+}
+
+#bookmarklet a {
+	font-size: 32px;
+	color: #000;
+}
+
+#bookmarklet span {
+	display: block;
+	font-size: 18px;
+	color: #777;
+}
+
+#description_top {
+	color: #830F14;
+	font-size: 26px;
+	text-align: left;
+}
+#description_mid {
+	font-size: 20px;
+	text-align: center;
+}
+#description_bot {
+	color: #830F14;
+	font-size: 26px;
+	text-align: right;
+}

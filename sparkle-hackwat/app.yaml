@@ -14,11 +14,11 @@ handlers:
 - url: /
   script: main.py
 
-- url: /images
-  static_dir: images
+- url: /img
+  static_dir: img
 
-- url: /audio
-  static_dir: audio
+- url: /css
+  static_dir: css
 
 - url: /.*
   script: main.py
