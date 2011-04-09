@@ -40,6 +40,7 @@ class Manage(webapp.RequestHandler):
             'movie_title': movie_title,
             'movie_upc': movie_upc,
             'zipdata': zipdata,
+            'id': re.search("([0-9]*)$", zipdata.Id).group(0)
         }
 
         path = None
@@ -53,6 +54,7 @@ class Manage(webapp.RequestHandler):
 
 class Add(webapp.RequestHandler):
     def get(self):
+        url = self.request.get('title_id')
         path = os.path.join(os.path.dirname(__file__), 'added.json')
         self.response.out.write(template.render(path, {}))
 

@@ -18,20 +18,24 @@
 
 
 $(document).ready(function() {
-	var url = '{{url}}';
-	$.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=?&id=' + url, function (jsondata) {
-		var prmetrics = jsondata['{{url}}'];
-		var prtext = "";
+  var url = '{{url}}';
+  $.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=?&id=' + url, function (jsondata) {
+    var prmetrics = jsondata['{{url}}'];
+    var prtext = "";
 
-		for (var key in prmetrics) {
-			prtext += key;
-			prtext += ' = ';
-			prtext += prmetrics[key];
-			prtext += ' | ';
-		}
+    for (var key in prmetrics) {
+      prtext += key;
+      prtext += ' = ';
+      prtext += prmetrics[key];
+      prtext += ' | ';
+    }
 
-		$("#postranks").text(prtext);
-	});
+    $("#postranks").text(prtext);
+  });
+
+  $('#add').click(function() {
+    $.getJSON('/add?title_id={{ id }}', function(response) {});
+  });
 });
 
 </script>
