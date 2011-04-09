@@ -26,13 +26,14 @@ class Manage(webapp.RequestHandler):
         url = self.request.get('url'),
         selected = self.request.get('selected')
 
-        movie_title = urlutil.get_movie_title_from_url(title,url,selected)
+        movie_title, movie_upc = urlutil.get_movie_title_and_upc_from_url(title,url,selected)
 
         template_values = {
             'title': title,
             'url': url,
             'selected': selected,
             'movie_title': movie_title,
+            'movie_upc': movie_upc,
         }
 
         path = os.path.join(os.path.dirname(__file__), 'manage.html')
