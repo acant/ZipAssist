@@ -18,32 +18,24 @@
 
 
 $(document).ready(function() {
-  var url = '{{url}}';
-  $.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=?&id=' + url, function (jsondata) {
-<<<<<<< Updated upstream
-    var prmetrics = jsondata['{{url}}'];
-    var prtext = "";
-
-    for (var key in prmetrics) {
-      prtext += key;
-      prtext += ' = ';
-      prtext += prmetrics[key];
-      prtext += ' | ';
-    }
-
-    $("#postranks").text(prtext);
-  });
-
   $('#add').click(function() {
     $.getJSON('/add?title_id={{ id }}', function(response) {});
   });
-=======
-    console.log(jsondata);
-    $("#postranks").text(jsondata);
-  });
 
-  $.getJSON('/add?title_id={{ zipdata.id }}', function(response) {});
->>>>>>> Stashed changes
+	var url = '{{url}}';
+	$.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=?&id=' + url, function (jsondata) {
+		var prmetrics = jsondata['{{url}}'];
+
+		for (var key in prmetrics) {
+			$("#postranks").append(
+				$('<span/>').addClass('postrank_metric').addClass(key)
+			).append(
+				$('<span/>').text(prmetrics[key])
+			);
+		}
+
+		$("#postranks").html();
+	});
 });
 
 </script>

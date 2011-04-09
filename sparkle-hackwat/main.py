@@ -1,4 +1,5 @@
 import os
+import re
 import cgi
 import logging
 import email
@@ -40,7 +41,7 @@ class Manage(webapp.RequestHandler):
             'movie_title': movie_title,
             'movie_upc': movie_upc,
             'zipdata': zipdata,
-            'id': re.search("([0-9]*)$", zipdata.Id).group(0)
+            'id': re.search("([0-9]*)$", zipdata['Id']).group(0)
         }
 
         path = None
@@ -51,12 +52,13 @@ class Manage(webapp.RequestHandler):
 
         self.response.out.write(template.render(path, template_values))
 
-
 class Add(webapp.RequestHandler):
     def get(self):
-        url = self.request.get('title_id')
-        path = os.path.join(os.path.dirname(__file__), 'added.json')
-        self.response.out.write(template.render(path, {}))
+      title_id = self.request.get('title_id')
+      zipca.zip(title_id)
+
+      path = os.path.join(os.path.dirname(__file__), 'added.json')
+      self.response.out.write(template.render(path, {}))
 
 def main():
     application = webapp.WSGIApplication([
