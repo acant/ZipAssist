@@ -20,8 +20,17 @@
 $(document).ready(function() {
 	var url = '{{url}}';
 	$.getJSON('http://api.postrank.com/v2/entry/metrics?appkey=hackwaterloo&callback=?&id=' + url, function (jsondata) {
-    console.log(jsondata);
-	$("#postranks").text(jsondata);
+		var prmetrics = jsondata['{{url}}'];
+		var prtext = "";
+
+		for (var key in prmetrics) {
+			prtext += key;
+			prtext += ' = ';
+			prtext += prmetrics[key];
+			prtext += ' | ';
+		}
+
+		$("#postranks").text(prtext);
 	});
 });
 
