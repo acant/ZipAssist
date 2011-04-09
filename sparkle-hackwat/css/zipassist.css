@@ -2,6 +2,11 @@ body {
 	background-color: #830F14;
 }
 
+#add {
+  position: absolute;
+  top: 240px;
+}
+
 #content {
 	background-color: #FFF;
 	width: 800px;
@@ -15,11 +20,14 @@ body {
 	margin: 0;
 	padding: 0;
 	vertical-align: middle;
+  margin-top: -10px;
 }
 
 #zipassist {
 	display: inline-block;
+  padding-left:10px;
 	width: 565px;
+  line-height: 22px;
 }
 
 #ziptitle {
@@ -45,7 +53,9 @@ body {
 	color: #999;
 }
 
-#ziplink {
+#ziplink a {
+	display: block;
+	color: #830F14;
 }
 
 #error_content {

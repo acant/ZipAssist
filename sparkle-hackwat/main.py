@@ -31,6 +31,7 @@ class Manage(webapp.RequestHandler):
 
         movie_title, movie_upc = urlutil.get_movie_title_and_upc_from_url(title,url,selected)
         zipdata = zipca.search(movie_title, movie_upc)
+        logging.error(zipdata)
 
         template_values = {
             'title': title,
@@ -49,20 +50,19 @@ class Manage(webapp.RequestHandler):
 
         self.response.out.write(template.render(path, template_values))
 
-class Zip(webapp.RequestHandler):
-  def get(self):
-    zipca.zip('3057654')
-    zipca.zip_list()
+class Add(webapp.RequestHandler):
+    def get(self):
+      title_id = self.request.get('title_id')
+      zipca.zip(title_id)
 
-  def post(self):
-    title_id = self.request.get('title_id')
-    zipca.zip(title_id)
+      path = os.path.join(os.path.dirname(__file__), 'added.json')
+      self.response.out.write(template.render(path, {}))
 
 def main():
     application = webapp.WSGIApplication([
       ('/', MainPage),
       ('/manage', Manage),
-      ('/zip', Zip)
+      ('/add', Add)
     ], debug=True)
     util.run_wsgi_app(application)
 
