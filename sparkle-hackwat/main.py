@@ -49,10 +49,20 @@ class Manage(webapp.RequestHandler):
 
         self.response.out.write(template.render(path, template_values))
 
+class Zip(webapp.RequestHandler):
+  def get(self):
+    zipca.zip('3057654')
+    zipca.zip_list()
+
+  def post(self):
+    title_id = self.request.get('title_id')
+    zipca.zip(title_id)
+
 def main():
     application = webapp.WSGIApplication([
       ('/', MainPage),
-      ('/manage', Manage)
+      ('/manage', Manage),
+      ('/zip', Zip)
     ], debug=True)
     util.run_wsgi_app(application)
 
