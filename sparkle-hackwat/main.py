@@ -41,11 +41,11 @@ class Manage(webapp.RequestHandler):
             'zipdata': zipdata,
         }
 
-		path = None
-		if zipdata:
-			path = os.path.join(os.path.dirname(__file__), 'manage.html')
-		if not path:
-			path = os.path.join(os.path.dirname(__file__), 'manage_error.html')
+        path = None
+        if zipdata:
+            path = os.path.join(os.path.dirname(__file__), 'manage.html')
+        else:
+            path = os.path.join(os.path.dirname(__file__), 'manage_error.html')
 
         self.response.out.write(template.render(path, template_values))
 
