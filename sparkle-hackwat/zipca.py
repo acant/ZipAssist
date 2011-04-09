@@ -49,12 +49,14 @@ def zip(title_id):
   token = oauth.Token.from_string('oauth_token=H5%2FiKP3pp7Q4Cmw4h3oX1unMu5c%3D&oauth_token_secret=S06hAqO8TcfDujZoTEufgWy8OyY%3D')
   client = oauth.Client(consumer, token)
 
-  logging.error(resp)
-  logging.error(content)
-
   resp, content = client.request(RESOURCE_URL, "POST")
 
-  return(resp.status_code == 200)
+  logging.error(resp)
+  logging.error(resp['status'])
+  logging.error(content)
+
+
+  return(resp['status'] == 200)
 
 #TODO
 #def unzip(title_id):
