@@ -112,3 +112,73 @@ body {
 	font-size: 26px;
 	text-align: right;
 }
+
+span.postrank_metric {
+  display: inline-block;
+
+  height: 16px;
+  padding: 0;
+  padding-left: 20px;
+  margin-right: 10px;
+
+  color: #666;
+  background: url(http://www.postrank.com/graphics/spriteSet_3.png) no-repeat top left;
+}
+
+span.postrank_metric.bloglines{ background-position: 0 -16px; }
+span.postrank_metric.reddit{ background-position: 0 -32px; }
+span.postrank_metric.reddit_votes{ background-position: 0 -32px; }
+span.postrank_metric.technorati{ background-position: 0 -48px; }
+span.postrank_metric.reddit_comments { background-position: 0 -416px; }
+span.postrank_metric.magnolia{ background-position: 0 -64px; }
+span.postrank_metric.digg{ background-position: 0 -80px; }
+span.postrank_metric.twitter{ background-position: 0 -96px; }
+span.postrank_metric.comments{ background-position: 0 -112px; }
+span.postrank_metric.icerocket{ background-position: 0 -128px; }
+span.postrank_metric.delicious{ background-position: 0 -144px; }
+span.postrank_metric.google,
+span.postrank_metric.gr_shared{ background-position: 0 -160px; }
+span.postrank_metric.pownce{ background-position: 0 -176px; }
+span.postrank_metric.views{ background-position: 0 -192px; }
+span.postrank_metric.bookmarks{ background-position: 0 -208px; }
+span.postrank_metric.clicks{ background-position: 0 -224px; }
+span.postrank_metric.jaiku{ background-position: 0 -240px; }
+span.postrank_metric.identica{ background-position: 0 -352px; }
+span.postrank_metric.digg_comments{ background-position: 0 -256px; }
+span.postrank_metric.twitarmy{ background-position: 0 -336px; }
+span.postrank_metric.diigo{ background-position: 0 -272px; }
+span.postrank_metric.furl{ background-position: 0 -320px; }
+span.postrank_metric.brightkite{ background-position: 0 -304px; }
+span.postrank_metric.feecle{ background-position: 0 -288px; }
+span.postrank_metric.ff_likes{ background-position: 0 -368px; }
+span.postrank_metric.ff_comments{ background-position: 0 -432px; }
+span.postrank_metric.blip{ background-position: 0 -384px; }
+span.postrank_metric.tumblr{ background-position: 0 -400px; }
+span.postrank_metric.summary{ background-position: 0 -448px; }
+span.postrank_metric.all{ background-position: 0 -464px; }
+
+span.postrank_metric.y_combinator,
+span.postrank_metric.hn_comments,
+span.postrank_metric.hn_score { background-position: 0 -480px;}
+
+span.postrank_metric.ms_note,
+span.postrank_metric.ms_article,
+span.postrank_metric.ms_blog-entry,
+span.postrank_metric.ms_bookmark,
+span.postrank_metric.ms_bulletin,
+span.postrank_metric.ms_comment,
+span.postrank_metric.ms_review { background-position: 0 -496px; }
+
+span.postrank_metric.fb_post { background-position: 0 -512px; }
+span.postrank_metric.buzz { background-position: 0 -528px; }
+span.postrank_metric.trackbacks, span.postrank_metric.pr_trackback { background-position: 0 -544px; }
+
+span.postrank_metric.hatena{ background-position: 0 -624px; }
+
+span.postrank_metric.YBuzz_comment,
+span.postrank_metric.YBuzz_vote,
+span.postrank_metric.ybuzz{ background-position: 0 -640px; }
+
+span.postrank_metric.n4g_comments{ background-position: 0 -656px; }
+span.postrank_metric.techspy_comments{ background-position: 0 -672px; }
+span.postrank_metric.meme{ background-position: 0 -688px; }
