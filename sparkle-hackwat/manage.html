@@ -13,18 +13,28 @@
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="/js/jquery.blockUI.js"></script>
 
 <script type="text/javascript">
 
 
 $(document).ready(function() {
   $('#add').click(function() {
+    $.blockUI({
+      message: 'Adding to list...',
+      css: {
+        border: 'none',
+        padding: '15px',
+        backgroundColor: '#000',
+        '-webkit-border-radius': '10px',
+        '-moz-border-radius': '10px',
+        'border-radius': '10px',
+        opacity: .5,
+        color: '#fff'}
+    });
+
     $.get('/add?title_id={{ id }}', function(response) {
-      if ( response.success ) {
-        window.location.href = window.location.href;
-      } else {
-        console.log('something went wrong');
-      }
+      window.location.href = window.location.href;
     });
   });
 
@@ -51,12 +61,15 @@ $(document).ready(function() {
 <body>
 
 <div id="content">
-  <img src="{{zipdata.CoverArt.Large}}" alt="Movie Image"></img>
+  <img src="{{zipdata.CoverArt.Large}}" id="foo" alt="Movie Image"></img>
 
   <div id="zipassist">
     <div id="ziptitle">{{zipdata.Title.Regular}}</div>
     <div id="postranks"></div>
-    <div id="ziprating"><meter min="0" max="5" low="2" high="4" optimum="5" value="{{zipdata.ZipRating}}"></meter>{{zipdata.ZipRating}}</div>
+
+    <div id="ziprating"><meter min="0" max="5" low="2" high="4" optimum="5" value="{{zipdata.ZipRating}}"></meter>
+      <span id="rating">{{zipdata.ZipRating}}/5</span></div>
+
     <div id="zipreleaseyear">[<span>{{zipdata.ReleaseYear}}</span>]</div>
     <div id="zipcats">
       {% for cat in zipdata.Categories %}
@@ -70,11 +83,13 @@ $(document).ready(function() {
     </div>
   </div>
     <button id="add">Add to ZipList</button>
-  <div></div>
-  <h1>Your current zip list is:</h1>
-  <ul class="zip_list">
-    {% for title in ziplist %}
-      <li>{{title.Title.Regular}}</li>
-    {% endfor %}
-  </ul>
+
+  <div id="list">
+    <h1>Your current zip list is:</h1>
+    <ul class="zip_list">
+      {% for title in ziplist %}
+        <li>{{title.Title.Regular}}</li>
+      {% endfor %}
+    </ul>
+</div>
 </body>

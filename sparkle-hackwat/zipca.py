@@ -1,6 +1,6 @@
 import urllib
 import logging
-import json
+from django.utils import simplejson as json
 import oauth2 as oauth
 from google.appengine.api import urlfetch
 
