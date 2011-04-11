@@ -33,23 +33,22 @@ class Manage(webapp.RequestHandler):
         movie_title, movie_upc = urlutil.get_movie_title_and_upc_from_url(title,url,selected)
         zipdata = zipca.search(movie_title, movie_upc)
 
-        path = None
-        if zipdata:
-            zipdata['ZipRating'] = round(zipdata['ZipRating'], 2)
-            template_values = {
-                'title': title,
-                'url': url,
-                'selected': selected,
-                'movie_title': movie_title,
-                'movie_upc': movie_upc,
-                'zipdata': zipdata,
-                'ziplist': zipca.zip_list()['Titles'],
-                'id': re.search("([0-9]*)$", zipdata['Id']).group(0)
-            }
+        template_values = {
+            'title': title,
+            'url': url,
+            'selected': selected,
+            'movie_title': movie_title,
+            'movie_upc': movie_upc,
+            'zipdata': zipdata,
+            'ziplist': zipca.zip_list()['Titles'],
+        }
 
+        path = None
+        try:
+            zipdata['ZipRating'] = round(zipdata['ZipRating'], 2)
+            template_values['id'] = re.search("([0-9]*)$", zipdata['Id']).group(0)
             path = os.path.join(os.path.dirname(__file__), 'manage.html')
-        else:
-            template_values = {}
+        except:
             path = os.path.join(os.path.dirname(__file__), 'manage_error.html')
 
         self.response.out.write(template.render(path, template_values))
