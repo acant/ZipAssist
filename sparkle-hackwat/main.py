@@ -33,7 +33,8 @@ class Manage(webapp.RequestHandler):
         movie_title, movie_upc = urlutil.get_movie_title_and_upc_from_url(title,url,selected)
         zipdata = zipca.search(movie_title, movie_upc)
 
-        zipdata['ZipRating'] = round(zipdata['ZipRating'], 2)
+		if zipdata:
+			zipdata['ZipRating'] = round(zipdata['ZipRating'], 2)
 
         template_values = {
             'title': title,
